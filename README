@@ -1,0 +1,32 @@
+* The Application
+
+ToDo App
+
+** ToDo details:
+- Description
+- Date (not required)
+- Priorities (low, medium, high - default is low)
+- Order of listing is configurable by any field, default is by
+  priority
+
+** Nice additions
+- Users
+
+* Tech Details (Windows 7 64 bit)
+- Node.js
+- Express framework
+- Frontend: jQuery UI
+- Testing: Expresso
+- Storage: MongoDB, Mongoose
+
+** MongoDB install on Windows:
+- Extract to C:\mongodb
+- mkdir  C:\data\db
+- Start: mongod.exe, shell is mongo.exe
+
+** NPM packages
+- *Run as normal user in the project directory*
+npm install express jade less expresso nodemon connect-flash
+npm install mongoose --mongodb:native
+- Run module like node path\bin\module_name
+- nodemon: no need to restart server, execute with nodemon app.js

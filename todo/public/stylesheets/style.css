@@ -1,0 +1,55 @@
+body {
+    width: 40em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+p.date {
+    font-style: italic;
+    font-weight: lighter;
+    font-size: small;
+    text-indent: 5em;
+    color: lightgray;
+}
+
+div.todo {
+    width: 80%;
+}
+
+div.todo_body {
+    width: 75%;
+    float: left;
+}
+
+div.todo_priority {
+    width: 25%;
+    float: right;
+}
+
+div.todo_options a {
+    text-decoration:none;
+}
+
+#todo_input {
+    width: 30em;
+}
+
+.small {
+    font-size: medium;
+}
+
+.medium {
+    font-size: large;
+}
+
+.big {
+    font-size: x-large;
+}
+
+#message {
+    background-color: yellow;
+    text-align: center;
+    width: 10em;
+    margin-right: auto;
+    margin-left: auto;
+}

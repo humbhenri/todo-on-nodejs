@@ -1,0 +1,22 @@
+doctype 5
+html
+  head
+    title ToDos
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='/javascripts/moment.min.js')
+    script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
+    script(src='/javascripts/todo.js')
+    script(type='text/javascript')
+
+      $(document).ready(function() {
+        $('.date').text(function(index, oldvalue) {
+          return moment(oldvalue).fromNow();
+        });
+        $('#message').fadeOut(2000);
+      });
+
+  body
+    block content
+    br
+    - if (typeof message !== 'undefined')
+      #message= message
