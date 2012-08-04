@@ -48,7 +48,7 @@ app.get('/blah', function(req, res) { res.send('Node.js sucks'); });
 // List
 app.get('/todos', function(req, res){
     var query = ToDo.find({});
-    query.sort('situation', 1, 'priority', -1);
+    query.sort('done', 1, 'priority', -1);
     query.exec(function(error, data) {
         res.render('todos/index.jade', {
             message: req.flash('info'),
@@ -80,10 +80,10 @@ app.post('/todos/.:format?', function(req, res){
 app.post('/todos/:id/save', function(req, res){
     ToDo.findOne({_id : req.params.id}, function(err, d) {
         if (!d) return next(new NotFound('ToDo not found'));
-        if (req.body['situation' + req.params.id] == 'on') {
-            d.situation = true;
+        if (req.body['done' + req.params.id] == 'on') {
+            d.done = true;
         } else  {
-            d.situation = false;
+            d.done = false;
         }
         d.modified = new Date();
         d.save(function(err) {
@@ -132,7 +132,7 @@ app.post('/todos/:id/priority_down', function(req, res){
 app.post('/todos/:id/delete', function(req, res){
     ToDo.remove({_id : req.params.id}, function(err, d){
         req.flash('info', 'ToDo Deleted');
-        res.redirect('/todos');        
+        res.redirect('/todos');
     });
 });
 

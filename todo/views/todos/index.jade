@@ -8,28 +8,28 @@ block content
         tr
           td
             input(type='checkbox',
-              name='situation' + d.id,
-              value=d.situation,
-              checked=d.situation,
+              name='done' + d.id,
+              value=d.done,
+              checked=d.done,
               onclick='save_todo("' + d.id + '");')
             case d.priority
               when "0"
-                - if (d.situation)
-                  span.small.done= d.description
+                - if (d.done)
+                  span.done= d.description
                 - else
                   span.small= d.description
               when "1"
-                - if (d.situation)
-                  span.medium.done= d.description
+                - if (d.done)
+                  span.done= d.description
                 - else
                   span.medium= d.description
               when "2"
-                - if (d.situation)
-                  span.big= d.description
+                - if (d.done)
+                  span.done= d.description
                 - else
-                span.big= d.description
+                  span.big= d.description
           td
-            -if (d.situation)
+            -if (d.done)
               a(href='#', onclick='delete_todo("' + d.id + '");') 	delete
             -else
               .todo_options
