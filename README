@@ -6,16 +6,11 @@ ToDo App
 - Description
 - Date (not required)
 - Priorities (low, medium, high - default is low)
-- Order of listing is configurable by any field, default is by
-  priority
-
-** Nice additions
-- Users
 
 * Tech Details (Windows 7 64 bit)
 - Node.js
 - Express framework
-- Frontend: jQuery UI
+- Frontend: jade
 - Testing: Expresso
 - Storage: MongoDB, Mongoose
 
