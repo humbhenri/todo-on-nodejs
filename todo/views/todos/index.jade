@@ -3,26 +3,41 @@ extends layout
 block content
   h2 Pending ToDos
   form(action='', method='post')
-    - each d in todos
-      .todo
-        .todo_body
-          input(type='checkbox',
-            name='situation' + d.id,
-            value=d.situation,
-            checked=d.situation,
-            onclick='save_todo("' + d.id + '");')
-          case d.priority
-            when "0"
-              span.small= d.description
-            when "1"
-              span.medium= d.description
-            when "2"
-              span.big= d.description
-        .todo_options
-          a(href='#', onclick='set_priority_up("' + d.id + '");') 	&#708; &nbsp;
-          a(href='#', onclick='set_priority_down("' + d.id + '");') 	&#709; &nbsp
-          -if (d.situation)
-            a(href='#', onclick='delete_todo("' + d.id + '");') 	delete
-      p.date= d.modified.toUTCString()
+    table.todo
+      - each d in todos
+        tr
+          td
+            input(type='checkbox',
+              name='situation' + d.id,
+              value=d.situation,
+              checked=d.situation,
+              onclick='save_todo("' + d.id + '");')
+            case d.priority
+              when "0"
+                - if (d.situation)
+                  span.small.done= d.description
+                - else
+                  span.small= d.description
+              when "1"
+                - if (d.situation)
+                  span.medium.done= d.description
+                - else
+                  span.medium= d.description
+              when "2"
+                - if (d.situation)
+                  span.big= d.description
+                - else
+                span.big= d.description
+          td
+            -if (d.situation)
+              a(href='#', onclick='delete_todo("' + d.id + '");') 	delete
+            -else
+              .todo_options
+                a(href='#', onclick='set_priority_up("' + d.id + '");') 	&#708; &nbsp;
+                a(href='#', onclick='set_priority_down("' + d.id + '");') 	&#709; &nbsp
+
+          td
+            p.date= d.modified.toUTCString()
+
     input#todo_input(type='text', name='new_todo')
     input(type='submit', value='New', onclick='create_todo();')

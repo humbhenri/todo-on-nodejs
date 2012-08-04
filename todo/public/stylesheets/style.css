@@ -12,8 +12,8 @@ p.date {
     color: lightgray;
 }
 
-div.todo {
-    width: 80%;
+table.todo {
+    width: 100%;
 }
 
 div.todo_body {
@@ -52,4 +52,8 @@ div.todo_options a {
     width: 10em;
     margin-right: auto;
     margin-left: auto;
+}
+
+.done {
+    color: lightgray;
 }
