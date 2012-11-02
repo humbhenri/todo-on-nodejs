@@ -48,7 +48,7 @@ app.get('/blah', function(req, res) { res.send('Node.js sucks'); });
 // List
 app.get('/todos', function(req, res){
     var query = ToDo.find({});
-    query.sort('done', 1, 'priority', -1);
+    query.sort({done : 1, priority : -1})
     query.exec(function(error, data) {
         res.render('todos/index.jade', {
             message: req.flash('info'),
