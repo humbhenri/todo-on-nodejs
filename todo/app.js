@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -42,8 +41,6 @@ app.configure('production', function() {
 app.get('/', function(req, res) {
     res.redirect('/todos');
 });
-
-app.get('/blah', function(req, res) { res.send('Node.js sucks'); });
 
 // List
 app.get('/todos', function(req, res){
